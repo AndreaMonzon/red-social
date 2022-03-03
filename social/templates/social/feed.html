@@ -1,0 +1,19 @@
+{% extends 'social/layout.html' %}
+{% load humanize %}
+{% block content %}
+
+{%for p in posts%}
+<article>
+    <a href="{% url 'seguidores' %}">se</a>
+    <div class="container-article">
+        <img src="{{p.usuario.profile.imagen.url}}">
+        <div>
+            <h2 class="username"><a href="{% url 'profile' p.usuario.username %}">@{{p.usuario.username}}</a></h2>
+            <i class="clock"></i>
+            <time data-time="#">{{p.timestamp|naturaltime}}</time>
+            <div class="post">{{p.contenido}}</div>
+        </div>
+    </div>
+</article>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'social/layout.html' %}
+
+{% block content %}
+
+{%for s in seguidores%}
+
+   
+    <article>
+        <div class="container-article">
+            <img src="{{s.from_user.profile.imagen.url}}">
+            <div>
+                <h2 class="username"><a href="{% url 'profile'  s.from_user.username %}">@ {{s.from_user.username}}</a></h2>
+               
+            </div>
+        </div>
+    </article>
+    
+{% endfor %}
+
+
+{% endblock %}
